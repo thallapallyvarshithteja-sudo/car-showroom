@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elite Motors | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🚗 Elite Motors</div>
+    <nav>
+        <a href="style.html">Home</a>
+        <a href="cars.html">Cars</a>
+        <a href="specs.html">Specifications</a>
+        <a href="booking.html">Book Now</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Drive the Future</h1>
+       <p id="changing-text">Luxury • Performance • Innovation</p>
+        <a href="cars.html" class="explore-btn"><button>Explore Cars</button></a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-container">
+
+        <div>
+            <h3>Elite Motors</h3>
+            <p>Premium Cars for Premium Drivers</p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>📞 8341351169</p>
+        </div>
+    </div>
+    <script>
+    const texts = [
+        "Luxury • Performance • Innovation",
+        "Speed • Power • Precision",
+        "Comfort • Style • Safety",
+        "Technology • Design • Class",
+        "Drive • Dream • Dominate"
+    ];
+
+    let index = 0;
+    const textElement = document.getElementById("changing-text");
+
+    setInterval(() => {
+        index = (index + 1) % texts.length;
+        textElement.textContent = texts[index];
+    }, 2000); // 2000ms = 1 seconds
+</script>
+
+</footer>
+</body>
+<script>
+   
+    document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            console.log("Navigating to: " + this.textContent);
+        });
+    });
+
+   
+    document.querySelector(".explore-btn button").addEventListener("click", function () {
+        alert("Redirecting to Cars Page 🚗");
+    });
+
+    
+    window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 50);
+    });
+</script>
+</html>
